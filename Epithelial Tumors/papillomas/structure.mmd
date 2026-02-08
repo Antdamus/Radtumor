@@ -1,0 +1,76 @@
+flowchart TB
+  %% =========================================================
+  %% PAPILLOMA — ARCHITECTURE + EPITHELIAL ORIGIN MAP
+  %% (VS Code Mermaid extension friendly, no "/n")
+  %% =========================================================
+
+  classDef title fill:#0b0b0f,stroke:#d4af37,color:#f5e6b8,stroke-width:2px
+  classDef core fill:#11131a,stroke:#8b8b94,color:#e9e9ef,stroke-width:1.5px
+  classDef epi fill:#0f172a,stroke:#7aa2ff,color:#eaf1ff,stroke-width:1.2px
+  classDef type fill:#0f1f16,stroke:#5eead4,color:#eafffb,stroke-width:1.2px
+  classDef not fill:#1a0f12,stroke:#fb7185,color:#ffe4e6,stroke-width:1.2px
+  classDef legend fill:#0b0b0f,stroke:#2a2f3a,color:#cbd5e1,stroke-width:1px
+
+  T["PAPILLOMA (BENIGN EPITHELIAL NEOPLASM)"]:::title
+
+  S["Defining STRUCTURE (what makes it a papilloma): papillary / frond-like projections, fibrovascular cores, epithelial covering, exophytic growth (typically)"]:::core
+
+  A["ARCHITECTURE CHECKPOINT: papilla = fibrovascular core + epithelial lining"]:::core
+
+  T --> S
+  S --> A
+
+  %% -------------------------
+  %% EPITHELIAL ORIGINS (QUALIFY)
+  %% -------------------------
+  subgraph ORIGINS["EPITHELIAL ORIGINS THAT CAN FORM PAPILLOMAS (surface / lumen-facing)"]
+    direction TB
+
+    E1["Stratified squamous epithelium: keratinized (skin), non-keratinized (oral cavity, oropharynx, larynx, esophagus, anogenital mucosa)"]:::epi
+    E2["Urothelium (transitional epithelium): renal pelvis, ureter, bladder"]:::epi
+    E3["Respiratory-type mucosa (pseudostratified / columnar, sinonasal tract): nasal cavity, paranasal sinuses"]:::epi
+    E4["Ductal / surface-connected epithelium: breast ducts (lumen-connected), salivary ducts (less common)"]:::epi
+  end
+
+  A --> ORIGINS
+
+  %% -------------------------
+  %% TYPES BY EPITHELIUM
+  %% -------------------------
+  subgraph TYPES["COMMON PAPILLOMA TYPES (by epithelial origin)"]
+    direction TB
+
+    T1["Squamous papilloma: skin, oral cavity, larynx, anogenital mucosa (HPV may be present, not required)"]:::type
+    T2["Urothelial papilloma: bladder / upper tract (benign end of papillary urothelial spectrum)"]:::type
+    T3["Sinonasal papillomas: exophytic, inverted, oncocytic (site-specific behavior varies)"]:::type
+    T4["Intraductal papilloma (breast): papillary fronds within a duct, fibrovascular cores, lumen-connected"]:::type
+  end
+
+  E1 --> T1
+  E2 --> T2
+  E3 --> T3
+  E4 --> T4
+
+  %% -------------------------
+  %% WHAT DOES NOT COUNT (EXCLUSIONS)
+  %% -------------------------
+  subgraph EXCL["EPITHELIAL LININGS THAT ARE NOT PAPILLOMAS (different tumor families)"]
+    direction TB
+
+    X1["Endothelium (blood vessels): vascular tumors (hemangioma, angiosarcoma), not papilloma"]:::not
+    X2["Mesothelium (pleura, peritoneum): mesothelial tumors (mesothelioma), not papilloma"]:::not
+  end
+
+  A --> EXCL
+
+  %% -------------------------
+  %% LEGEND + SUMMARY
+  %% -------------------------
+  subgraph NOTES["LEGEND, SUMMARY"]
+    direction TB
+
+    L1["Legend: Gold = title, Gray = defining structure, Blue = epithelial origin, Teal = papilloma type, Pink = exclusions"]:::legend
+    L2["Summary: Papilloma is an architectural diagnosis, benign, epithelial, papillary fronds with fibrovascular cores; HPV can be a cause for some squamous papillomas, but HPV is not required"]:::legend
+  end
+
+  T --> NOTES
