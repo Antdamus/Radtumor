@@ -1,0 +1,143 @@
+flowchart LR
+  %% =========================================================
+  %% OPTION A: Two-lane map with bridges
+  %% Left lane = histology lineage families
+  %% Middle = practical diagnostic buckets
+  %% Right lane = key defining molecular alterations
+  %% =========================================================
+
+  %% -------------------------
+  %% LEFT: Histology families
+  %% -------------------------
+  subgraph H[Histology and lineage families]
+    direction TB
+    H0[Glial and related neuroepithelial]
+    H1[Astrocytic appearing]
+    H2[Oligodendroglial appearing]
+    H3[Ependymal appearing]
+    H4[Neuronal and mixed glioneuronal]
+    H5[Epithelial tumors]
+    H6[Embryonal tumors]
+    H7[Immune and histiocytic]
+  end
+
+  H0 --> H1
+  H0 --> H2
+  H0 --> H3
+  H0 --> H4
+  H0 --> H5
+  H0 --> H6
+  H0 --> H7
+
+  %% -------------------------
+  %% MIDDLE: Practical buckets
+  %% -------------------------
+  subgraph B[Practical diagnostic buckets used in modern classification]
+    direction TB
+    B1[Adult-type diffuse glioma bucket]
+    B2[Pediatric-type diffuse glioma bucket]
+    B3[Circumscribed astrocytic tumor bucket]
+    B4[Glioneuronal and LEAT bucket]
+    B5[Ependymal tumor bucket]
+    B6[Choroid plexus tumor bucket]
+    B7[Embryonal tumor bucket]
+    B8[Hematolymphoid and histiocytic bucket]
+  end
+
+  %% Bridges from histology to buckets
+  H1 --> B1
+  H1 --> B3
+  H1 --> B2
+  H2 --> B1
+  H3 --> B5
+  H4 --> B4
+  H5 --> B6
+  H6 --> B7
+  H7 --> B8
+
+  %% -------------------------
+  %% RIGHT: Molecular definers
+  %% -------------------------
+  subgraph M[Key molecular definers and upgrades]
+    direction TB
+
+    %% Adult-type diffuse gliomas
+    M1[IDH mutation]
+    M2[1p 19q codeletion]
+    M3[ATRX loss and TP53 mutation pattern]
+    M4[GBM molecular upgrade set\nEGFR amplification\nTERT promoter mutation\nChromosome plus 7 minus 10]
+    M5[CDKN2A B homozygous deletion\nAstrocytoma IDH-mutant grade 4 criterion]
+
+    %% Pediatric-type diffuse gliomas
+    M6[H3 K27 alteration]
+    M7[H3 G34 mutation]
+    M8[MAPK pathway alterations\nBRAF fusion or BRAF V600E]
+
+    %% Circumscribed astrocytic tumors and related
+    M9[BRAF fusion pattern\nPilocytic pathway]
+    M10[BRAF V600E pattern\nPXA and some glioneuronal]
+    M11[MYB or MYBL1 alterations\nSome low grade cortical tumors]
+
+    %% Ependymal
+    M12[ZFTA fusion pattern\nSupratentorial ependymoma]
+    M13[Posterior fossa groups\nPFA and PFB]
+    M14[MYCN amplification pattern\nAggressive spinal ependymoma subset]
+
+    %% Choroid plexus
+    M15[TP53 alteration pattern\nImportant in CPC risk context]
+
+    %% Embryonal
+    M16[WNT group and SHH group\nMedulloblastoma subgroups]
+    M17[SMARCB1 or SMARCA4 loss\nATRT hallmark]
+
+    %% Immune
+    M18[Clonal B cell markers\nPrimary CNS lymphoma]
+  end
+
+  %% Connect buckets to key molecular definers
+  B1 --> M1
+  B1 --> M2
+  B1 --> M3
+  B1 --> M4
+  B1 --> M5
+
+  B2 --> M6
+  B2 --> M7
+  B2 --> M8
+
+  B3 --> M9
+  B3 --> M10
+  B3 --> M8
+
+  B4 --> M10
+  B4 --> M11
+  B4 --> M8
+
+  B5 --> M12
+  B5 --> M13
+  B5 --> M14
+
+  B6 --> M15
+
+  B7 --> M16
+  B7 --> M17
+
+  B8 --> M18
+
+  %% -------------------------
+  %% Styling for readability
+  %% -------------------------
+  classDef hist fill:#bbdefb,stroke:#0d47a1,color:#000000,stroke-width:2px
+  classDef bucket fill:#dcedc8,stroke:#33691e,color:#000000,stroke-width:2px
+  classDef molec fill:#ffe0b2,stroke:#e65100,color:#000000,stroke-width:2px
+  classDef warning fill:#c62828,stroke:#000000,color:#ffffff,stroke-width:2px
+  classDef neutral fill:#eeeeee,stroke:#616161,color:#000000,stroke-width:2px
+
+  class H0,H1,H2,H3,H4,H5,H6,H7 hist
+  class B1,B2,B3,B4,B5,B6,B7,B8 bucket
+
+  class M1,M2,M3,M5,M6,M7,M8,M9,M10,M11,M12,M13,M14,M15,M16,M17,M18 molec
+  class M4 warning
+  class H neutral
+  class B neutral
+  class M neutral
