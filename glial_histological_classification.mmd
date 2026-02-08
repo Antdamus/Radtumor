@@ -1,0 +1,85 @@
+flowchart TD
+  A[CNS tumor families organized by lineage] --> G[Glial and related neuroepithelial lineage]
+  A --> N[Neuronal and mixed neuronal glial lineage]
+  A --> EP[Epithelial lineage]
+  A --> IM[Hematolymphoid and histiocytic lineage]
+  A --> EM[Embryonal lineage]
+  A --> OT[Other non neuroepithelial lineages]
+
+  %% Glial and related neuroepithelial lineage
+  G --> GA[Astrocytic tumors]
+  G --> GO[Oligodendroglial tumors]
+  G --> GE[Ependymal tumors]
+
+  GA --> GA1[Pilocytic astrocytoma]
+  GA --> GA2[Diffuse astrocytoma]
+  GA --> GA3[Anaplastic astrocytoma]
+  GA --> GA4[Glioblastoma]
+  GA --> GA5[Pleomorphic xanthoastrocytoma]
+  GA --> GA6[Desmoplastic infantile astrocytoma]
+
+  GO --> GO1[Oligodendroglioma]
+
+  GE --> GE1[Ependymoma]
+  GE --> GE2[Subependymoma]
+  GE --> GE3[Myxopapillary ependymoma]
+
+  %% Neuronal and mixed neuronal glial lineage
+  N --> NN[Neuronal tumors]
+  N --> NG[Glioneuronal tumors]
+
+  NN --> NN1[Central neurocytoma]
+  NN --> NN2[Dysplastic gangliocytoma]
+  NN --> NN3[Multinodular and vacuolating neuronal tumor]
+
+  NG --> NG1[Ganglioglioma]
+  NG --> NG2[Dysembryoplastic neuroepithelial tumor]
+  NG --> NG3[Desmoplastic infantile ganglioglioma]
+
+  %% Epithelial lineage
+  EP --> EPC[Choroid plexus tumors]
+  EPC --> EPC1[Choroid plexus papilloma]
+  EPC --> EPC2[Choroid plexus carcinoma]
+
+  %% Hematolymphoid and histiocytic lineage
+  IM --> IM1[Primary CNS lymphoma]
+  IM --> IM2[Histiocytic and inflammatory lesions]
+
+  %% Embryonal lineage
+  EM --> EM1[Medulloblastoma]
+  EM --> EM2[Atypical teratoid rhabdoid tumor]
+
+  %% Other non neuroepithelial lineages
+  OT --> OT1[Mesenchymal tumors]
+  OT --> OT2[Meningeal tumors]
+  OT --> OT3[Germ cell tumors]
+
+  %% High contrast color classes
+  classDef root fill:#ede7f6,stroke:#4527a0,color:#000000,stroke-width:2px
+  classDef glial fill:#bbdefb,stroke:#0d47a1,color:#000000,stroke-width:2px
+  classDef neuronal fill:#dcedc8,stroke:#33691e,color:#000000,stroke-width:2px
+  classDef epithelial fill:#ffe0b2,stroke:#e65100,color:#000000,stroke-width:2px
+  classDef immune fill:#f5f5f5,stroke:#424242,color:#000000,stroke-width:2px
+  classDef embryonal fill:#ce93d8,stroke:#4a148c,color:#000000,stroke-width:2px
+  classDef other fill:#eeeeee,stroke:#616161,color:#000000,stroke-width:2px
+  classDef gbm fill:#c62828,stroke:#000000,color:#ffffff,stroke-width:2px
+
+  %% Apply classes to category nodes
+  class A root
+  class G,GA,GO,GE glial
+  class N,NN,NG neuronal
+  class EP,EPC epithelial
+  class IM immune
+  class EM embryonal
+  class OT other
+
+  %% Emphasize GBM
+  class GA4 gbm
+
+  %% Make leaf nodes readable and consistent
+  class GA1,GA2,GA3,GA5,GA6,GO1,GE1,GE2,GE3 glial
+  class NN1,NN2,NN3,NG1,NG2,NG3 neuronal
+  class EPC1,EPC2 epithelial
+  class IM1,IM2 immune
+  class EM1,EM2 embryonal
+  class OT1,OT2,OT3 other
